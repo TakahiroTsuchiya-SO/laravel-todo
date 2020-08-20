@@ -11,14 +11,11 @@ class EditTask extends CreateTask
     {
         $rule = parent::rules();
 
-        return $rule + [
-            'status' => 'required|' . Rule::in(array_keys(Task::STATUS));
-        ];
-        // $status_rule = Rule::in(array_keys(Task::STATUS));
+        $status_rule = Rule::in(array_keys(Task::STATUS));
 
-        // return $rule + [
-        //     'status' => 'required|' . $status_rule,
-        // ];
+        return $rule + [
+            'status' => 'required|' . $status_rule,
+        ];
     }
 
     public function attributes()
